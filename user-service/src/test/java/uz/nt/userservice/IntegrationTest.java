@@ -4,10 +4,10 @@ package uz.nt.userservice;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
@@ -27,14 +27,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //@AutoConfigureMockMvc
 //@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class IntegrationTest {
-    @Autowired
+//    @Autowired
     private MockMvc mockMvc;
     private String token;
     private String username = "fotima";
     private String password = "Aa12345";
 
-    @Order(0)
-    @Test
+//    @Order(0)
+//    @Test
     public void addUser() throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         UserDto userDto = new UserDto();
@@ -53,7 +53,7 @@ public class IntegrationTest {
                 .content(user);
 
         String responseBody = mockMvc.perform(requestBuilder)
-                .andDo(print())
+//                .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse()
@@ -65,8 +65,8 @@ public class IntegrationTest {
         Assertions.assertNotNull(responseDto.getResponseData());
     }
 
-    @Order(1)
-    @Test
+//    @Order(1)
+//    @Test
     public void getToken() throws Exception {
         LoginDto loginDto = new LoginDto(username,password);
 
@@ -93,8 +93,8 @@ public class IntegrationTest {
         token = responseDto.getResponseData().getToken();
     }
 
-    @Order(3)
-    @Test
+//    @Order(3)
+//    @Test
     public void deleteUser() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.delete("/user/delete")
                 .param("username",username).header("Authorization","Bearer ".concat(token));

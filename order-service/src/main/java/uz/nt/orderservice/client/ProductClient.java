@@ -23,12 +23,12 @@ public interface ProductClient {
     ProductServiceExchangeDto check();
 
     @PostMapping("/product/update-amount")
-    ResponseDto<Boolean> subtractAmount(@RequestParam Integer productId, @RequestParam Double amount);
+    ResponseDto<Boolean> subtractAmount(@RequestParam(value = "productId") Integer productId, @RequestParam(value = "amount") Double amount);
 
     @GetMapping("product/check-amount")
-    ResponseDto<Boolean> checkAmountProduct(@RequestParam Integer productId, @RequestParam Double amount);
+    ResponseDto<Boolean> checkAmountProduct(@RequestParam(value = "productId") Integer productId, @RequestParam(value = "amount") Double amount);
     @PostMapping("product/set-amount")
-    ResponseDto setProductAmount(@RequestParam Double amount, @RequestParam Integer productId);
+    ResponseDto setProductAmount(@RequestParam(value = "amount") Double amount, @RequestParam(value = "productId") Integer productId);
 
     @PostMapping("product/products-by-id")
     ResponseDto<Map<Integer, ProductDto>> getProductDtoList(@RequestBody List<Integer> productIdList);

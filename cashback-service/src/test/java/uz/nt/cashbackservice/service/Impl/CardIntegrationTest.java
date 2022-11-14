@@ -32,25 +32,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //todo| Test databaza ochib, 'SQL-script'-dagi sessionni ana o'sha databazaga ulash kerak
 //todo| Va test-databazaning nomi 'application-test.properties' dagi nom bilan bir-xil bo'lsin
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@PropertySource(value = "classpath:/application-test.properties")
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@SpringBootTest
+//@AutoConfigureMockMvc
+//@PropertySource(value = "classpath:/application-test.properties")
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CardIntegrationTest {
 
-    @Autowired
+//    @Autowired
     private MockMvc mockMvc;
-    @Autowired
+//    @Autowired
     private UserClient userClient;
 
     private static String token;
 
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    @Sql(value = "classpath:/cashback-card-integration.sql")
-    @DisplayName(value = "Add cashback card")
-    @Test
-    @Order(1)
+//    @Sql(value = "classpath:/cashback-card-integration.sql")
+//    @DisplayName(value = "Add cashback card")
+//    @Test
+//    @Order(1)
     void firstAddCashback() throws Exception {
 
         LoginDto loginDto = LoginDto.builder().username("abdumalik").password("abdumalik").build();
@@ -88,9 +88,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(2)
-    @DisplayName(value = "Positive. Get cashback by it's id")
+//    @Test
+//    @Order(2)
+//    @DisplayName(value = "Positive. Get cashback by it's id")
     void firstGetCashbackById() throws Exception {
 
         Integer cashbackCardId = 1;
@@ -120,9 +120,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(3)
-    @DisplayName(value = "Negative. Get cashback card by id")
+//    @Test
+//    @Order(3)
+//    @DisplayName(value = "Negative. Get cashback card by id")
     void secondGetCashbackById() throws Exception {
         Integer cashbackCardId = 2;
 
@@ -151,9 +151,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(4)
-    @DisplayName(value = "Positive. Get cashback card by user-id")
+//    @Test
+//    @Order(4)
+//    @DisplayName(value = "Positive. Get cashback card by user-id")
     void firstGetCashbackByUserId() throws Exception {
         Integer userId = 1;
 
@@ -181,9 +181,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(5)
-    @DisplayName(value = "Negative. Get cashback card by user-id")
+//    @Test
+//    @Order(5)
+//    @DisplayName(value = "Negative. Get cashback card by user-id")
     void secondGetCashbackByUserId() throws Exception {
         Integer cashbackCardId = 2;
 
@@ -213,9 +213,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(6)
-    @DisplayName(value = "Positive. Increase amount cashback")
+//    @Test
+//    @Order(6)
+//    @DisplayName(value = "Positive. Increase amount cashback")
     void firstIncreaseCashback() throws Exception {
         int userId = 1;
         double amount = 1000_000D;
@@ -255,9 +255,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(7)
-    @DisplayName(value = "Negative. Increase amount cashback")
+//    @Test
+//    @Order(7)
+//    @DisplayName(value = "Negative. Increase amount cashback")
     void secondIncreaseCashback() throws Exception {
         int userId = 2;
         double amount = 1000_000D;
@@ -294,9 +294,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(8)
-    @DisplayName(value = "Positive. Subtract amount cashback")
+//    @Test
+//    @Order(8)
+//    @DisplayName(value = "Positive. Subtract amount cashback")
     void firstSubtractCashback() throws Exception {
         int userId = 1;
         double cashbackAmount = 3000D;
@@ -332,9 +332,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(9)
-    @DisplayName(value = "Negative. Subtract amount cashback")
+//    @Test
+//    @Order(9)
+//    @DisplayName(value = "Negative. Subtract amount cashback")
     void secondSubtractCashback() throws Exception {
         int userId = 2;
         double cashbackAmount = 3000D;
@@ -368,9 +368,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(10)
-    @DisplayName(value = "Positive. Delete card by it's id")
+//    @Test
+//    @Order(10)
+//    @DisplayName(value = "Positive. Delete card by it's id")
     void firstDeleteCardById() throws Exception {
         int cardId = 1;
 
@@ -402,9 +402,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(11)
-    @DisplayName(value = "Negative. Delete card by it's id")
+//    @Test
+//    @Order(11)
+//    @DisplayName(value = "Negative. Delete card by it's id")
     void secondDeleteCardById() throws Exception {
         int cardId = 11;
 
@@ -433,9 +433,9 @@ public class CardIntegrationTest {
     }
 
 
-    @Test
-    @Order(12)
-    @DisplayName(value = "Positive. Delete card by user id")
+//    @Test
+//    @Order(12)
+//    @DisplayName(value = "Positive. Delete card by user id")
     void firstDeleteCardByUserId() throws Exception {
         int userId = 1;
 
@@ -465,9 +465,9 @@ public class CardIntegrationTest {
 
 
 
-    @Test
-    @Order(13)
-    @DisplayName(value = "Negative. Delete card by user id")
+//    @Test
+//    @Order(13)
+//    @DisplayName(value = "Negative. Delete card by user id")
     void secondDeleteCardByUserId() throws Exception {
         int userId = 120;
 

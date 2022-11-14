@@ -1,6 +1,6 @@
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class CashbackServiceApplicationTests {
 
 }

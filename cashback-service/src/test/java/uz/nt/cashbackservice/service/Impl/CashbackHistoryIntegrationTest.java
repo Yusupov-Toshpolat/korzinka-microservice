@@ -26,26 +26,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //todo| Test databaza ochib, 'SQL-script'-dagi sessionni ana o'sha databazaga ulash kerak
 //todo| Va test-databazaning nomi 'application-test.properties' dagi nom bilan bir-xil bo'lsin
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@PropertySource(value = "classpath:/application-test.properties")
+//@SpringBootTest
+//@AutoConfigureMockMvc
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@PropertySource(value = "classpath:/application-test.properties")
 public class CashbackHistoryIntegrationTest {
 
-    @Autowired
+//    @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
+//    @Autowired
     private UserClient userClient;
 
     private static String token;
 
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    @Sql(value = "classpath:/cashback-history-integration.sql")
-    @DisplayName(value = "Get history by card id")
-    @Test
-    @Order(1)
+//    @Sql(value = "classpath:/cashback-history-integration.sql")
+//    @DisplayName(value = "Get history by card id")
+//    @Test
+//    @Order(1)
     void getByCardId() throws Exception {
         int cardId = 1;
         LoginDto loginDto = LoginDto.builder().username("abdumalik").password("abdumalik").build();
@@ -78,9 +78,9 @@ public class CashbackHistoryIntegrationTest {
 
 
 
-    @DisplayName(value = "Get history by card id and between")
-    @Test
-    @Order(2)
+//    @DisplayName(value = "Get history by card id and between")
+//    @Test
+//    @Order(2)
     void getBetween() throws Exception {
 
         int cardId = 1;
@@ -108,9 +108,9 @@ public class CashbackHistoryIntegrationTest {
     }
 
 
-    @Test
-    @DisplayName(value = "Delete history by card id")
-    @Order(3)
+//    @Test
+//    @DisplayName(value = "Delete history by card id")
+//    @Order(3)
     void deleteByCardId() throws Exception {
         int cardId = 1;
 
